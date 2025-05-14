@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/output.css">
+    <script src="./login.js" defer></script>
+    <title>Login | Signup</title>
+</head>
+<body class="bg-linear-to-br select-none to-[var(--bgscol)]  from-[var(--bgmcol)]  flex justify-center  items-center h-screen font-sans">
+    <div id="otpModal" class="fixed inset-0 hidden z-[500]">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-3xl"></div>
+        <form id="otpForm" action="" method="post" autocomplete="on" class="shadow-2xl shadow-gray-950  absolute left-1/2   -translate-x-1/2  top-1/2 -translate-y-1/2  otpinputs w-96 h-60 bg-[var(--btncol)] rounded-xl px-10  overflow-hidden flex justify-center flex-col items-center transition-all duration-1000">
+            <h2 class="text-center text-white mt-4 font-bold">Enter the code sent to your email</h2>
+            <div class="flex justify-center items-center gap-2 mt-6" id="inputsParent">
+                <input autofocus type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
+                <input type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
+                <input type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
+                <input type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
+                <input type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
+            </div>
+            <div class="flex justify-center items-center gap-2">
+                <button id="cancelBtn" type="button" class="btnEmail bg-transparent text-white cursor-pointer rounded-lg hover:bg-[var(--bgmcol)] hover:scale-95 mt-10 hover:text-black font-bold transition-all duration-500 border-none outline-none  py-2 px-12 flex justify-center gap-2 items-center">
+                    Cancel             
+                </button>             
+                <button id="verifyBtn" type="button" class="btnEmail bg-transparent text-white cursor-pointer rounded-lg hover:bg-[var(--bgmcol)] hover:scale-95 mt-10 hover:text-black font-bold transition-all duration-500 border-none outline-none  py-2 px-12 flex justify-center gap-2 items-center">
+                    Verify
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="next size-5 relative hidden transition-all duration-150">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z" />
+                    </svg>               
+                </button>             
+            </div>
+        </form>
+    </div>
+    <div class="w-[748px] min-h-8/12 max-w-screen flex   shadow-2xl overflow-hidden shadow-gray-400 rounded-4xl h-20  bg-[var(--frmcol)] dark:bg-black ">
+       <div id="signupdiv" class="relative   top-0 h-full left-0 w-1/2 hidden   z-10 transition-all duration-700 ease-in-out">
+            <form id="signUpForm" action="" autocomplete="on" class="transition-all duration-700 ease-in-out flex flex-col justify-center items-center h-full  px-10 gap-12" method="post">
+                <h1 class="font-bold text-4xl">Create Account</h1>
+                <div class="flex flex-col gap-1 justify-center items-center w-full">
+                    <div class="w-full flex justify-center items-center gap-2">
+                        <svg id="userSvg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 fill-black">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>                          
+                        <input class="w-full bg-[#eee] border-none outline-none mt-2 px-2 py-2 rounded-md  transition-all focus:shadow-2xl focus:shadow-black" minlength="3" maxlength="20" type="text"   id="userName" name="username" value="" required placeholder="Username">
+                    </div>
+                    <div class="w-full flex flex-col justify-center items-center">
+                        <div class="w-full gap-2 flex justify-center items-center content-center ">
+                            <svg id="emailSvg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
+                            </svg>                          
+                            <input class="w-full bg-[#eee] border-none outline-none mt-2 px-2 py-2 rounded-md  transition-all focus:shadow-2xl focus:shadow-black" type="email"   id="email" name="email" value="" required placeholder="Email">
+                        </div>
+                        <p id="addSugEmail" class=" text-xs mt-2 text-center relative right-24  hidden"></p>
+                    </div>
+                    <div class="w-full flex flex-col justify-center items-center">             
+                        <div class="gap-2 w-full flex justify-center items-center ">
+                            <input minlength="6" maxlength="10" class="w-full bg-[#eee] border-none outline-none mt-2 px-2 py-2 rounded-md focus:scale-105 transition-all focus:shadow-2xl focus:shadow-black relative left-7  inputsPass" type="password"   id="pass"  name="pass" value="" required placeholder="password">
+                            <svg id="iconnewpass" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 relative right-2 top-1/10 cursor-pointer svgShowPass">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                        </div>
+                        <p id="addSug" class=" text-xs mt-2 text-center relative right-3 hidden"></p>
+                        
+                    </div>
+                    <div class="w-full flex flex-col justify-center items-center">             
+                        <div class="gap-2 w-full flex justify-center items-center">
+                            <input minlength="6" maxlength="10" class="w-full bg-[#eee] border-none outline-none mt-2 px-2 py-2 rounded-md focus:scale-105 transition-all focus:shadow-2xl focus:shadow-black relative left-7  inputsPass" type="password"   id="repass"  name="repass" value="" required placeholder="Confrim password">
+                            <svg id="iconrepass" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 relative right-2 top-1/10 cursor-pointer svgShowPass">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                        </div>
+                        <p id="addSugCon" class="text-xs mt-2 text-center relative right-3 hidden"></p>
+                    </div>
+                </div>
+                <button id="formSignUpBtn" type="submit" class="bg-[var(--btncol)] text-white cursor-pointer rounded-lg hover:bg-gray-950 hover:scale-95 shadow-black transition-all border-none outline-none  py-2 px-12">SIGN UP</button>
+            </form>
+        </div>
+        <div id="signindiv" class="relative  top-0 h-full left-0 w-1/2 z-20  transition-all duration-700 ease-in-out">
+            <form id="signinfrm" action="" autocomplete="on" class="flex flex-col justify-center items-center h-full  px-10 gap-8" method="post">
+                <h1 class="font-bold text-4xl">Sign In</h1>
+                <div class="flex flex-col gap-1 justify-center items-center w-full">
+                    <div class="w-full flex justify-center items-center gap-2">
+                        <svg id="siUserSvg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 fill-black">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>                          
+                        <input class="w-full bg-[#eee] border-none outline-none mt-2 px-2 py-2 rounded-md focus:scale-105 transition-all focus:shadow-2xl focus:shadow-black" type="text"   id="userNameSi" name="username" value="" required placeholder="Username">
+                    </div>
+                    
+                    <div class="w-full flex flex-col justify-center items-center">  
+                        <div class="gap-2 w-full flex justify-center items-center">
+                            <input minlength="6" maxlength="10" class="w-full bg-[#eee] border-none outline-none mt-2 px-2 py-2 rounded-md focus:scale-105 transition-all focus:shadow-2xl focus:shadow-black relative left-7 inputsPass" type="password"   id="snpass"  name="pass" value="" required placeholder="password">
+                            <svg  id="iconpass" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svgShowPass size-6 relative right-2 top-1/10 cursor-pointer">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                        </div>                
+                        <p id="addSugConSi" class="text-xs mt-2 text-center relative right-3 hidden"></p>
+                    </div>
+                    
+                </div>
+                <a href="./otp.html" class="font-light">Forget Your Password?</a>
+                <button type="submit" class="bg-[var(--btncol)] text-white cursor-pointer rounded-lg hover:bg-gray-950 hover:scale-95 shadow-black transition-all border-none outline-none  py-2 px-12">SIGN IN</button>
+            </form>
+        </div>
+        <div id="panelparent" class="relative  top-0  w-1/2 h-full overflow-hidden transition-all duration-700 ease-in-out rounded-tl-4xl rounded-bl-4xl z-50 ">
+            <div id="toggle" class="h-full bg-[var(--btncol)] text-white relative -left-full w-[200%] translate-x-0 transition-all duration-700 ease-in-out">
+                <div id="leftpanel" class=" absolute  translate-x-[-200%] w-1/2 h-full flex flex-col justify-center gap-10  items-center px-10  text-center top-0  transition-all duration-700 ease-in-out  ">
+                    <h2 class="font-bold text-4xl text-white">Welcome!</h2>
+                    <p class="text-white">Register with your personal details to use all of site features</p>
+                    <button id="signinbtn" type="button" class="bg-transparent border border-white text-white px-12 py-2 rounded-lg hover:bg-[var(--bgmcol)] hover:text-black transition-colors duration-700 cursor-pointer">SIGN IN</button>
+                </div>
+                <div id="rightpanel" class=" absolute right-0 translate-x-0 w-1/2 h-full flex flex-col justify-center gap-10  items-center px-10  text-center top-0 transition-all duration-700 ease-in-out  ">
+                    <h2 class="font-bold text-4xl text-white">Hello, Friend!</h2>
+                    <p class="text-white">Register with your personal details to use all of site features</p>
+                    <button type="button" id="signupbtn"  class="bg-transparent border border-white text-white px-12 py-2 rounded-lg hover:bg-[var(--bgmcol)] hover:text-black transition-colors duration-300 cursor-pointer">SIGN UP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

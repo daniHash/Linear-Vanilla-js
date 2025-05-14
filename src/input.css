@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+.next{
+    visibility: hidden;
+}
+.btnEmail:hover .next{
+    display: block;
+    visibility: visible;
+    opacity: 100%;
+    top: 2px;   
+}
+.slide{
+    transform: translateX(200px);
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+.slide-right{
+    transition: all 800ms ease-in-out;
+    transform: translateX(0);
+    visibility: visible;
+    display: flex;
+    opacity: 100%;
+}
+.headtranslate{
+    transform: translateX(295px);
+}
+.maintranslate{
+    width: 70%;
+    transform: translateX(270px);
+}
+:root{
+    --bgmcol:#F4F1BB;
+    --bgscol:#FFF0E5;
+    --btncol:#10162F;
+    --frmcol:#FFF59D;
+}
+@font-face {
+    font-family: 'sigma';
+    src: url('../fonts/Sigmar-Regular.ttf') format("truetype");
+    
+}
+@theme{
+    --font-sigma:'sigma';
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: var(--bgscol);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--btncol); 
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: cadetblue; 
+}
+
+
+.sidebarshow{
+    transform: translateX(100%);
+    
+}
+.profbox{
+    visibility: visible;
+    opacity: 100%;
+    display: block;
+    transition: all 600ms ease-in;
+    
+}
+.profsvg{
+    transform: rotate(-180deg);
+}
+
+.nonelin{
+    display: none;
+}

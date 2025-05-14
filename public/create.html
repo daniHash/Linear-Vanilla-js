@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/output.css">
+    <script src="./create.js" defer></script>
+    <title>Create Timeline</title>
+</head>
+<body style="background-attachment: fixed;" class="bg-linear-to-br select-text selection:text-white selection:bg-red-400 to-[var(--bgscol)] h-screen  from-[var(--bgmcol)] font-tahoma py-2 ">
+    <div class="w-full h-full backdrop-blur-md  z-50 inset-0 absolute" id="createTlModal">
+        <div class="parfrm fixed top-1/2 left-1/2 transform -translate-x-1/2 shadow-2xl   shadow-black px-12 py-10  -translate-y-1/2 w-1/2 h-9/12 bg-[var(--btncol)] rounded-4xl backdrop-blur-3xl">
+            <div class="flex justify-between items-center w-full  ">
+                <input type="text" placeholder="Timeline Title" maxlength="30" minlength="1" id="Title" autofocus class="placeholder:text-2xl bg-[var(--bgmcol)] text-center rounded-md font-bold  placeholder:font-bold placeholder:text-[var(--btncol)] text-xl outline-none   px-1 py-2 w-4/12 mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 cursor-pointer stroke-white hover:rotate-270 transition-all duration-500 delay-75 ease-in-out hover:scale-110" id="closeModal">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg> 
+            </div>
+            
+            <div class="mt-8 flex items-start ">
+                <div class="flex flex-col w-2/4">
+                    <h2 class="font-bold text-xl text-white mt-2">Category</h2>
+                    <input type="text" name="" placeholder="Historical,Sports..."  class="mt-4 w-52 bg-[var(--bgmcol)] px-2 py-1 outline-none rounded-md focus:scale-105 transition-all duration-500" id="category">
+                </div>
+                <div class="flex flex-col w-1/4">
+                    <div class="w-[350px] flex -mt-6 flex-col justify-center items-center gap-4">
+                        <h2 class="font-bold text-xl text-white mt-10 text-center">Timelines Tags(Optional)</h2>
+                        <div class="flex flex-col justify-center items-start w-full " >
+                            <div class="flex justify-center items-center w-full" id="tagPar">
+                                <button type="button" class="flex justify-center items-center gap-2 rounded-md p-2 cursor-pointer text-[var(--bgmcol)] hover:bg-[var(--bgmcol)] hover:text-[var(--btncol)] transition-all duration-500 shadow-md hover:shadow-lg" id="add-tag-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 animate-pulse">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>  
+                                    Add Tag                           
+                                </button>
+                                <input id="tagInp" onKeyUp="finalAddTag(event)" type="text" name="" class="ml-2 px-3 py-1.5 hidden rounded-md bg-[var(--bgmcol)] outline-none w-28 focus:ring-2 focus:ring-[var(--btncol)] transition-all duration-300" id="tag-input" placeholder="Enter tag...">
+                                <!-- <input type="text" name="" class="ml-2 px-3 py-1.5 rounded-md bg-[var(--bgmcol)] outline-none w-28 focus:ring-2 focus:ring-[var(--btncol)] transition-all duration-300" id="tag-input" placeholder="Enter tag..."> -->
+                            </div>
+                            <div class="flex gap-2 justify-center items-center w-full" id="tagcontainer">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 w-full justify-center items-center mt-4 relative right-20">
+                        <div class="w-48 -z-10 h-0.75 bg-[var(--bgmcol)] absolute right-67 top-17"></div>
+                        <div class="space-y-4">
+                            <h2 class="text-white font-bold text-md text-center">Start Date</h2>
+                            <input type="date" name="" id="start-date" class="bg-[var(--bgmcol)] px-4 py-4 rounded-xl outline-none">
+                        </div>
+                        <div class="w-2 -z-10 h-0.75 bg-[var(--bgmcol)] absolute right-20 top-17"></div>
+                        <div class="space-y-4">
+                            <h2 class="text-white font-bold text-md text-center">End Date</h2>
+                            <input type="date" name="" id="end-date" class="bg-[var(--bgmcol)] px-4 py-4 rounded-xl outline-none">
+                        </div>
+                        <div class="w-46 -z-10 h-0.75 bg-[var(--bgmcol)] absolute left-67 top-17"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-4">
+                <h2 class="font-bold text-xl text-white">Description(Optional)</h2>
+                <textarea name="" id="description" placeholder="Timeline Caption..."  maxlength="150" class="placeholder:text-white text-white resize-none bg-transparent to-white outline-none rounded-xl w-full h-16 px-4 py-2 mt-4"></textarea>
+                <span class="text-green-400 text-sm mt-2" id="deslenght">150 Characters Remaining</span>
+            </div>
+            <div class="flex -mt-8 gap-2 items-center justify-end w-full">
+                <button type="button" class="border border-[var(--btncol)] px-8 bg-[var(--bgmcol)] py-1 rounded-xl cursor-pointer   transition-all duration-500 ease-in-out hover:scale-95" id="createTlBtn">Create Timeline</button>
+                <button type="button" class="border border-[var(--bgmcol)] px-8 bg-[var(--btncol)] text-[var(--bgmcol)] py-1 rounded-xl cursor-pointer hover:bg-[var(--btncol)] hover:text-white transition-all duration-500 ease-in-out hover:scale-95" id="closeModalBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="w-full flex justify-evenly  px-4 items-center ">
+            <input type="text" placeholder="Timeline Title" id="header-tit" autofocus class=" outline-none border-b-2 border-[var(--btncol)] px-1 py-2 w-3/12">
+            <div class="w-full flex justify-center items-center mr-18">
+                <h1 class="font-bold text-3xl ">Creating Timeline</h1>
+            </div>
+            <div class="space-x-2 flex">
+                <button type="button" class="border border-[var(--btncol)] px-4 py-1 rounded-md cursor-pointer hover:bg-[var(--btncol)] hover:text-white transition-all duration-500 ease-in-out hover:scale-95" id="homebtn">Save</button>
+                <button type="button" class="border border-[var(--btncol)] px-4 py-1 rounded-md cursor-pointer text-white transition-all duration-500 ease-in-out hover:scale-95 bg-[var(--btncol)]" id="homebtn">Dashboard</button>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
