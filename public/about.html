@@ -7,84 +7,76 @@
     <script src="./about.js" defer></script>
     <title>About Us</title>
 </head>
-<body style="background-attachment: fixed;" class="bg-linear-to-br select-text selection:text-white selection:bg-red-400 to-[var(--bgscol)] h-screen  from-[var(--bgmcol)]   font-tahoma ">
-    <div class="container h-screen w-9/12 mx-auto">
-        <nav class=" w-full bg-[var(--bgmcol)] shadow-lg mt-4 rounded-full px-10  h-20 flex justify-between items-center">
-            <div class="">
-                <h2 class="font-bold text-3xl text-[var(--btncol)]">Linear</h2>
-            </div>
-            <div class="">
-                <ul class="flex justify-center items-center list-none gap-6">
-                    <li class=" text-md"><a href="./home.html">Home</a></li>
-                    <li class=" text-md"><a href="./login.html">Create TM</a></li>
-                    <li>
-                        <button type="button" class="border border-[var(--btncol)] p-2 rounded-xl cursor-pointer hover:bg-[var(--btncol)] hover:text-white transition-all duration-500 ease-in-out hover:scale-x-95" id="homebtn">Signin | Signup</button>
-                    </li>
-                </ul>
-            </div>
+<body class="bg-gradient-to-br from-[var(--bgmcol)] to-[var(--bgscol)] select-text selection:text-white selection:bg-red-400 font-tahoma min-h-screen">
+    <div class="container w-11/12 max-w-screen-xl mx-auto px-4">
+        <nav class="w-full bg-[var(--bgmcol)] shadow-lg mt-4 rounded-full px-6 md:px-10 h-16 md:h-20 flex justify-between items-center">
+            <h2 class="font-bold text-2xl md:text-3xl text-[var(--btncol)]">Linear</h2>
+            <ul class="hidden md:flex justify-center items-center gap-4 md:gap-6">
+                <li class="text-sm md:text-md"><a href="./home.html">Home</a></li>
+                <li class="text-sm md:text-md"><a href="./login.html">Create TM</a></li>
+                <li>
+                    <button type="button" class="border border-[var(--btncol)] px-3 py-1 md:px-4 md:py-2 rounded-xl cursor-pointer hover:bg-[var(--btncol)] hover:text-white transition-all duration-300" id="homebtn">Signin | Signup</button>
+                </li>
+            </ul>
         </nav>
-        <header class="w-full mt-32  flex flex-col justify-center gap-10 items-center">
-            <div class="w-full text-center">
-                <span class="text-gray-500">WELCOME TO</span>
-                <h2 class="mt-6 text-7xl font-mono">Linear</h2>
-            </div>
-            <div class="w-1/2 bg-[var(--btncol)] p-10 rounded-4xl text-[var(--bgmcol)]">
-                <p>"Our website is the result of countless hours of dedication and coding with  <b>TailwindCss , Javascript , Nodejs</b> and its database is also with <b>MongoDB</b>.  From its modern architecture to its engaging and dynamic user interface, everything has been meticulously designed to provide you with the best possible experience. We've built a robust and scalable infrastructure using Node.js that can handle a high volume of requests with ease. Our goal was to create a website that's fast, functional, and enjoyable to use. We hope you love it!"</p>
+
+        <header class="mt-16 md:mt-32 flex flex-col justify-center gap-10 items-center text-center">
+            <span class="text-gray-500">WELCOME TO</span>
+            <h2 class="text-4xl md:text-7xl font-mono">Linear</h2>
+            <div class="w-full md:w-1/2 bg-[var(--btncol)] p-6 md:p-10 rounded-3xl text-[var(--bgmcol)] text-sm md:text-base">
+                <p>Our website is the result of countless hours of dedication and coding with <b>TailwindCss, Javascript, Nodejs</b> and its database is also with <b>MongoDB</b>. From its modern architecture to its engaging and dynamic user interface, everything has been meticulously designed. We've built a scalable infrastructure using Node.js to handle high traffic. We hope you love it!</p>
             </div>
         </header>
+
         <hr class="mt-20 text-[var(--btncol)]">
-        <main class=" w-full  mt-20 ">
-            <div class="w-full text-center">
-                <span class="text-gray-500">WHO IS BEHIND</span>
-                <h2 class="mt-6 text-7xl font-mono">Linear</h2>
-            </div>
-            <div class="w-full flex justify-around items-center gap-10 mt-20 bg-[var(--btncol)] p-10 rounded-4xl text-[var(--bgmcol)]">
-                <div class="flex flex-col gap-2 w-1/2 justify-center items-center">
-                    <h3 class="font-bold text-2xl mb-2">Frontend DevelopeB</h3>
-                    <img src="../images/dani.png" class="w-48 h-48 rounded-full" alt="">
-                    <h2><b>Dani</b> HHK(hajhashemkhani)</h2>
-                    <div class="w-9/12 mt-6">
-                        <p class="text-center">Dani is a frontend developer who is very interested in web design and entered the world of programming and web design at the age of 12. As he progressed, his skills grew more and more.</p>
-                    </div>
-                    <div class="w-9/12 mt-6">
-                        <p class="text-center">Dani's skills: <b>Html , Css , TailwindCss , Javascript</b> And he is learning <b>Reactjs</b></p>
-                    </div>
-                    <h3 class="mt-4">His Github <a href="https://github.com/dani008pro" target="_blank" class="text-blue-500">@Dani</a></h3>
-                    <div class="flex justify-center items-center gap-14 mt-4">
-                        <a target="_blank" href="https://www.w3schools.com/html/" title="Html"><img class="size-10 cursor-pointer" src="../images/logos/html-1.svg" alt=""></a>
-                        <a target="_blank" href="https://www.w3schools.com/css/" title="Css"><img class="size-10 cursor-pointer" src="../images/logos/css-3.svg" alt=""></a>
-                        <a target="_blank" href="https://tailwindcss.com/" title="Tailwind"><img class="size-10 cursor-pointer" src="../images/logos/tailwind-css-2.svg" alt=""></a>
-                        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="Js"><img class="size-10 cursor-pointer" src="../images/logos/javascript-1.svg" alt=""></a>
+
+        <main class="mt-20 text-center">
+            <span class="text-gray-500">WHO IS BEHIND</span>
+            <h2 class="text-4xl md:text-7xl font-mono mt-4">Linear</h2>
+            <div class="flex flex-col lg:flex-row justify-center items-center gap-10 mt-10 bg-[var(--btncol)] p-6 md:p-10 rounded-3xl text-[var(--bgmcol)]">
+                <!-- Dani Section -->
+                <div class="flex flex-col items-center gap-4 w-full lg:w-1/2">
+                    <h3 class="font-bold text-xl md:text-2xl">Frontend Developer</h3>
+                    <img src="../images/dani.png" class="w-32 h-32 md:w-48 md:h-48 rounded-full" alt="Dani">
+                    <h2><b>Dani</b> HHK (hajhashemkhani)</h2>
+                    <p class="w-11/12 md:w-9/12">Dani entered the world of web development at age 12. Passionate and growing in skills.</p>
+                    <p class="w-11/12 md:w-9/12">Skills: <b>Html, Css, TailwindCss, Javascript</b>. Currently learning <b>Reactjs</b>.</p>
+                    <h3 class="mt-2">Github: <a href="https://github.com/dani008pro" class="text-blue-500" target="_blank">@Dani</a></h3>
+                    <div class="flex justify-center gap-6 mt-2 flex-wrap">
+                        <img class="size-10" src="../images/logos/html-1.svg" alt="Html">
+                        <img class="size-10" src="../images/logos/css-3.svg" alt="Css">
+                        <img class="size-10" src="../images/logos/tailwind-css-2.svg" alt="Tailwind">
+                        <img class="size-10" src="../images/logos/javascript-1.svg" alt="Js">
                     </div>
                 </div>
-                <div class="flex flex-col gap-2 w-1/2 justify-center items-center">
-                    <h3 class="font-bold text-2xl mb-2">Backend Developer</h3>
-                    <img src="../images/arya.png" class="w-48 h-48 rounded-full" alt="">
+
+                <!-- Arya Section -->
+                <div class="flex flex-col items-center gap-4 w-full lg:w-1/2">
+                    <h3 class="font-bold text-xl md:text-2xl">Backend Developer</h3>
+                    <img src="../images/arya.png" class="w-32 h-32 md:w-48 md:h-48 rounded-full" alt="Arya">
                     <h2><b>Arya</b> Hameveysi</h2>
-                    <div class="w-9/12 mt-6">
-                        <p class="text-center">Arya is a backend developer who is very interested in programming. He entered the world of programming and web design at the age of 11. As he progressed, his skills grew more and more.</p>
-                    </div>
-                    <div class="w-9/12 mt-6">
-                        <p class="text-center">Arya's skills: <b>javascript , Nodejs , Expressjs , MongoDB</b></p>
-                    </div>
-                    <h3 class="mt-4">His Github <a href="https://github.com/Arya-veysi" target="_blank" class="text-blue-500">@Arya</a></h3>
-                    <div class="flex justify-center items-center gap-8 mt-4">
-                        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="Js"><img class="size-10 cursor-pointer" src="../images/logos/javascript-1.svg" alt=""></a>
-                        <a target="_blank" href="https://nodejs.org/en" title="Nodejs"><img class="size-10 cursor-pointer" src="../images/logos/nodejs-icon.svg" alt=""></a>
-                        <a target="_blank" href="https://www.mongodb.com/" title="MongoDB"><img class="size-10 cursor-pointer" src="../images/logos/mongodb-icon-1.svg" alt=""></a>
-                        <a target="_blank" href="https://expressjs.com/" title="Express"><img class="size-10 w-14 cursor-pointer " src="../images/logos/express-109.svg" alt="" ></a>
+                    <p class="w-11/12 md:w-9/12">Arya entered programming at age 11. Strong in backend logic and server management.</p>
+                    <p class="w-11/12 md:w-9/12">Skills: <b>Javascript, Nodejs, Expressjs, MongoDB</b></p>
+                    <h3 class="mt-2">Github: <a href="https://github.com/Arya-veysi" class="text-blue-500" target="_blank">@Arya</a></h3>
+                    <div class="flex justify-center gap-6 mt-2 flex-wrap">
+                        <img class="size-10" src="../images/logos/javascript-1.svg" alt="Js">
+                        <img class="size-10" src="../images/logos/nodejs-icon.svg" alt="Nodejs">
+                        <img class="size-10" src="../images/logos/mongodb-icon-1.svg" alt="MongoDB">
+                        <img class="size-10 w-14" src="../images/logos/express-109.svg" alt="Express">
                     </div>
                 </div>
             </div>
         </main>
+
         <hr class="mt-20 text-[var(--btncol)]">
-        <footer class="w-full h-60 bg-[var(--btncol)] mt-20 rounded-tr-full rounded-tl-full overflow-hidden flex flex-col">
-            <h2 class="text-white font-bold text-4xl text-center mt-10">Linear</h2>
-            <ul class="w-full flex justify-evenly items-center mt-14">
-                <li><a href="mailto:lineareasy25@gmail.com" target="_blank" class=" border-b-2 border-[var(--bgmcol)] text-white font-bold text-2xl" >Contact Us</a></li>
-                <li><a href="./home.html" class="border-b-2 border-[var(--bgmcol)] text-white font-bold text-2xl">Home</a></li>
+
+        <footer class="w-full bg-[var(--btncol)] mt-20 rounded-tr-full rounded-tl-full overflow-hidden flex flex-col items-center py-10">
+            <h2 class="text-white font-bold text-3xl md:text-4xl">Linear</h2>
+            <ul class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-20 mt-6">
+                <li><a href="mailto:lineareasy25@gmail.com" target="_blank" class="border-b-2 border-[var(--bgmcol)] text-white font-bold text-xl">Contact Us</a></li>
+                <li><a href="./home.html" class="border-b-2 border-[var(--bgmcol)] text-white font-bold text-xl">Home</a></li>
             </ul>
-            <p class="text-center text-white mt-8">© 2025 Linear</p>
+            <p class="text-white mt-6 text-sm">© 2025 Linear</p>
         </footer>
     </div>
 </body>
