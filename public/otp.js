@@ -1,123 +1,124 @@
 //regex
-let emailRegex = /((\w+\.?)+[\@][\w]{5,7}.com)/g
-let resetPassRegex = /^(?=.*[\D])[\w_.@#$%]{6,10}$/
+let emailRegex = /((\w+\.?)+[\@][\w]{5,7}.com)/g;
+let resetPassRegex = /^(?=.*[\D])[\w_.@#$%]{6,10}$/;
 //variables
-let $ = document
-let userEmail = $.getElementById("userEmail")
-let nextBtn = $.getElementById("nextBtn")
-let otpForm = $.getElementById("otpForm")
-let emailForm = $.getElementById("emailForm")
-let inputsParent = $.getElementById("inputsParent")
-let verifyBtn = $.getElementById("verifyBtn")
-let resetForm = $.getElementById("resetForm")
-let resetPass = $.getElementById("resetPass")
-let resetConfrimPass = $.getElementById("resetConfrimPass")
-let addSugReset = $.getElementById("addSugReset")
-let resetBtn = $.getElementById("resetBtn")
-let iconResetPass = $.getElementById("iconresetpass")
-let iconResetConPass = $.getElementById("iconresetconfpass")
-let inps = $.querySelectorAll(".inps")
-let resetInputs = $.querySelectorAll(".resetInputs")
-let checkPass = false
-let userOtp = ""
-let resetPassShow = false
-let resetConfShow = false
+let $ = document;
+let userEmail = $.getElementById("userEmail");
+let nextBtn = $.getElementById("nextBtn");
+let otpForm = $.getElementById("otpForm");
+let emailForm = $.getElementById("emailForm");
+let inputsParent = $.getElementById("inputsParent");
+let verifyBtn = $.getElementById("verifyBtn");
+let resetForm = $.getElementById("resetForm");
+let resetPass = $.getElementById("resetPass");
+let resetConfrimPass = $.getElementById("resetConfrimPass");
+let addSugReset = $.getElementById("addSugReset");
+let resetBtn = $.getElementById("resetBtn");
+let iconResetPass = $.getElementById("iconresetpass");
+let iconResetConPass = $.getElementById("iconresetconfpass");
+let inps = $.querySelectorAll(".inps");
+let resetInputs = $.querySelectorAll(".resetInputs");
+let checkPass = false;
+let userOtp = "";
+let resetPassShow = false;
+let resetConfShow = false;
 //displayOtp
 const animateOtpForm = () => {
-    emailForm.style.display = "none"
-    otpForm.style.display = "flex"
-}
+  emailForm.style.display = "none";
+  otpForm.style.display = "flex";
+};
 //emailcheck
 nextBtn.addEventListener("click", () => {
-    if (!emailRegex.test(userEmail.value)) {
-        alert("Please input your email correctly")
-    } else {
-        let email = userEmail.value
-        animateOtpForm()
-    }
-})
+  if (!emailRegex.test(userEmail.value)) {
+    alert("Please input your email correctly");
+  } else {
+    let email = userEmail.value;
+    animateOtpForm();
+  }
+});
 //nextChildotp
 // inputsParent.firstElementChild.addEventListener("keyup", () => {
 //     inputsParent.firstElementChild.nextElementSibling.focus()
 // })
-inps.forEach(input => {
-    input.addEventListener("keyup", (e) => {
-        try {
-            if (e.key === "Tab") {
-
-            } else {
-                if (e.key === "Backspace") {
-
-                    input.previousElementSibling.focus()
-                }
-                else {
-                    if (e.key === " ") {
-
-                    } else {
-                        input.nextElementSibling.focus()
-                    }
-                }
-            }
+inps.forEach((input) => {
+  input.addEventListener("keyup", (e) => {
+    try {
+      if (e.key === "Tab") {
+      } else {
+        if (e.key === "Backspace") {
+          input.previousElementSibling.focus();
+        } else {
+          if (e.key === " ") {
+          } else {
+            input.nextElementSibling.focus();
+          }
         }
-        catch (err) {
-            console.warn(err.message);
-        }
-    })
-})
+      }
+    } catch (err) {
+      console.warn(err.message);
+    }
+  });
+});
 //display reset form
 verifyBtn.addEventListener("click", () => {
-    inps.forEach(inp => {
-        userOtp += inp.value
-    })
-    otpForm.style.display = "none"
-    resetForm.style.display = "flex"
-    setTimeout(() => {
-        resetForm.classList.add("slide-right")
-    }, 2)
-})
+  inps.forEach((inp) => {
+    userOtp += inp.value;
+  });
+  otpForm.style.display = "none";
+  resetForm.style.display = "flex";
+  setTimeout(() => {
+    resetForm.classList.add("slide-right");
+  }, 2);
+});
 //check pass
-resetInputs.forEach(res => {
-    res.addEventListener("keyup", () => {
-        if (!resetPassRegex.test(resetPass.value) || !resetPassRegex.test(resetConfrimPass.value)) {
-            addSugReset.style.display = "block"
-            checkPass = false
-        } else {
-            addSugReset.style.display = "none"
-            checkPass = true
-        }
-    })
-})
-resetForm.addEventListener("submit", e => {
-    if (!checkPass) {
-        e.preventDefault()
-    } else if (resetPass.value != resetConfrimPass.value) {
-        e.preventDefault()
-        addSugReset.innerText = "Invalid!"
-        addSugReset.style.display = "block"
+resetInputs.forEach((res) => {
+  res.addEventListener("keyup", () => {
+    if (
+      !resetPassRegex.test(resetPass.value) ||
+      !resetPassRegex.test(resetConfrimPass.value)
+    ) {
+      addSugReset.style.display = "block";
+      checkPass = false;
     } else {
-
+      addSugReset.style.display = "none";
+      checkPass = true;
     }
-})
+  });
+});
+resetForm.addEventListener("submit", (e) => {
+  if (!checkPass) {
+    e.preventDefault();
+  } else if (resetPass.value != resetConfrimPass.value) {
+    e.preventDefault();
+    addSugReset.innerText = "Invalid!";
+    addSugReset.style.display = "block";
+  } else {
+  }
+});
 //showpass
 iconResetPass.addEventListener("click", () => {
-    if (resetPassShow) {
-        resetPassShow = false
-        iconResetPass.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 	0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 	0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />'
-        resetPass.type = "password"
-    } else {
-        resetPassShow = true
-        iconResetPass.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />'
-        resetPass.type = "text"
-    }
-})
+  if (resetPassShow) {
+    resetPassShow = false;
+    iconResetPass.innerHTML =
+      '<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 	0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 	0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />';
+    resetPass.type = "password";
+  } else {
+    resetPassShow = true;
+    iconResetPass.innerHTML =
+      '<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />';
+    resetPass.type = "text";
+  }
+});
 iconResetConPass.addEventListener("click", () => {
-    if (resetConfShow) {
-        resetConfShow = false
-        iconResetConPass.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 	0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 	0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />'
-        resetConfrimPass.type = "password"
-    } else {
-        resetConfShow = true
-        iconResetConPass.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />'
-        resetConfrimPass.type = "text"
-    }
-})
+  if (resetConfShow) {
+    resetConfShow = false;
+    iconResetConPass.innerHTML =
+      '<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 	0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 	0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />';
+    resetConfrimPass.type = "password";
+  } else {
+    resetConfShow = true;
+    iconResetConPass.innerHTML =
+      '<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />';
+    resetConfrimPass.type = "text";
+  }
+});

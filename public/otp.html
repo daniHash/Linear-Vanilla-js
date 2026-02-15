@@ -1,73 +1,247 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="../src/output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="../src/output.css" />
     <script src="./otp.js" defer></script>
     <title>Verify</title>
-</head>
-<body class="capitalize bg-linear-to-br select-none to-[var(--bgscol)]  from-[var(--bgmcol)]  flex justify-center  items-center h-screen font-sans">
-    <form id="emailForm" action="" method="post" autocomplete="on" class=" w-96 h-60 bg-[var(--btncol)] rounded-3xl px-10 space-y-8  shadow-2xl overflow-hidden shadow-gray-400">
-        <h2 class="text-white text-center font-bold mt-8 text-2xl ">Your Email</h2>
-        <div class="flex flex-col items-center gap-12">
-            <div class="w-full gap-2 flex flex-col justify-center items-center content-center">
-                <input autofocus type="email" name="email" id="userEmail" placeholder="Email" class="w-full bg-[#eee] px-4 py-2 rounded-2xl outline-none border-none focus:scale-105 transition-all focus:shadow-2xl focus:shadow-gray-700">
-            </div>
-            <button id="nextBtn" type="button" class="btnEmail bg-transparent text-white cursor-pointer rounded-lg hover:bg-[var(--bgmcol)] hover:scale-95 hover:text-black font-bold transition-all duration-500 border-none outline-none  py-2 px-12 flex justify-center gap-2 items-center">
-                Send Code
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="next size-5 relative hidden transition-all duration-150">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                </svg>    
-            </button>             
+  </head>
+  <body
+    class="capitalize bg-linear-to-br select-none to-[var(--bgscol)] from-[var(--bgmcol)] flex justify-center items-center h-screen font-sans"
+  >
+    <form
+      id="emailForm"
+      action=""
+      method="post"
+      autocomplete="on"
+      class="w-96 h-60 bg-[var(--btncol)] rounded-3xl px-10 space-y-8 shadow-2xl overflow-hidden shadow-gray-400"
+    >
+      <h2 class="text-white text-center font-bold mt-8 text-2xl">Your Email</h2>
+      <div class="flex flex-col items-center gap-12">
+        <div
+          class="w-full gap-2 flex flex-col justify-center items-center content-center"
+        >
+          <input
+            autofocus
+            type="email"
+            name="email"
+            id="userEmail"
+            placeholder="Email"
+            class="w-full bg-[#eee] px-4 py-2 rounded-2xl outline-none border-none focus:scale-105 transition-all focus:shadow-2xl focus:shadow-gray-700"
+          />
         </div>
-        
+        <button
+          id="nextBtn"
+          type="button"
+          class="btnEmail bg-transparent text-white cursor-pointer rounded-lg hover:bg-[var(--bgmcol)] hover:scale-95 hover:text-black font-bold transition-all duration-500 border-none outline-none py-2 px-12 flex justify-center gap-2 items-center"
+        >
+          Send Code
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="next size-5 relative hidden transition-all duration-150"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+            />
+          </svg>
+        </button>
+      </div>
     </form>
-    <form id="otpForm" action="" method="post" autocomplete="on" class=" otpinputs w-96 h-60 bg-[var(--btncol)] rounded-3xl px-10   shadow-2xl overflow-hidden shadow-gray-400 flex justify-center flex-col items-center transition-all duration-1000 hidden">
-        <h2 class="text-center text-white mt-4 font-bold">Enter the code sent to your email</h2>
-        <div class="flex justify-center items-center gap-2 mt-6" id="inputsParent">
-            <input autofocus type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
-            <input type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
-            <input type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
-            <input type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
-            <input type="text" name="" id="" class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl" minlength="1" maxlength="1">
+    <form
+      id="otpForm"
+      action=""
+      method="post"
+      autocomplete="on"
+      class="otpinputs w-96 h-60 bg-[var(--btncol)] rounded-3xl px-10 shadow-2xl overflow-hidden shadow-gray-400 flex justify-center flex-col items-center transition-all duration-1000 hidden"
+    >
+      <h2 class="text-center text-white mt-4 font-bold">
+        Enter the code sent to your email
+      </h2>
+      <div
+        class="flex justify-center items-center gap-2 mt-6"
+        id="inputsParent"
+      >
+        <input
+          autofocus
+          type="text"
+          name=""
+          id=""
+          class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl"
+          minlength="1"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          name=""
+          id=""
+          class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl"
+          minlength="1"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          name=""
+          id=""
+          class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl"
+          minlength="1"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          name=""
+          id=""
+          class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl"
+          minlength="1"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          name=""
+          id=""
+          class="inps bg-[#eee] px-4 py-4 text-center outline-none font-bold text-2xl focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-14 rounded-2xl"
+          minlength="1"
+          maxlength="1"
+        />
+      </div>
+      <button
+        id="verifyBtn"
+        type="button"
+        class="btnEmail bg-transparent text-white cursor-pointer rounded-lg hover:bg-[var(--bgmcol)] hover:scale-95 mt-10 hover:text-black font-bold transition-all duration-500 border-none outline-none py-2 px-12 flex justify-center gap-2 items-center"
+      >
+        Verify
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="next size-5 relative hidden transition-all duration-150"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z"
+          />
+        </svg>
+      </button>
+    </form>
+    <form
+      id="resetForm"
+      action=""
+      method="post"
+      autocomplete="on"
+      class="slide otpinputs w-96 h-80 bg-[var(--btncol)] rounded-3xl px-10 shadow-2xl overflow-hidden shadow-gray-400 flex justify-around flex-col items-center transition-all duration-1000"
+    >
+      <h2 class="text-center text-white text-2xl font-bold">Reset Password</h2>
+      <div
+        class="flex flex-col justify-center items-center gap-3 w-full"
+        id="inputsParent"
+      >
+        <div class="gap-2 w-full flex justify-center items-center">
+          <input
+            required
+            type="password"
+            name="password"
+            id="resetPass"
+            placeholder="Password"
+            class="resetInputs bg-[#eee] px-4 py-2 outline-none relative left-5 focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-full rounded-xl transition-all"
+            minlength="6"
+            maxlength="10"
+          />
+          <svg
+            id="iconresetpass"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6 relative right-6 cursor-pointer svgShowPass"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
         </div>
-        <button id="verifyBtn" type="button" class="btnEmail bg-transparent text-white cursor-pointer rounded-lg hover:bg-[var(--bgmcol)] hover:scale-95 mt-10 hover:text-black font-bold transition-all duration-500 border-none outline-none  py-2 px-12 flex justify-center gap-2 items-center">
-            Verify
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="next size-5 relative hidden transition-all duration-150">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z" />
-            </svg>               
-        </button>             
-    </form>
-    <form id="resetForm"  action="" method="post" autocomplete="on" class="slide otpinputs w-96 h-80 bg-[var(--btncol)] rounded-3xl px-10   shadow-2xl overflow-hidden shadow-gray-400 flex justify-around flex-col items-center transition-all duration-1000 ">
-        <h2 class="text-center text-white  text-2xl font-bold">Reset Password</h2>
-        <div class="flex flex-col justify-center items-center gap-3 w-full  " id="inputsParent">
-            <div class="gap-2 w-full flex justify-center items-center ">
-                <input required type="password" name="password" id="resetPass" placeholder="Password" class="resetInputs bg-[#eee] px-4 py-2  outline-none relative left-5   focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-full rounded-xl transition-all" minlength="6" maxlength="10">
-                <svg id="iconresetpass" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 relative right-6 cursor-pointer svgShowPass">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>
-            </div>
-            <div class="gap-2 w-full flex justify-center items-center ">
-                <input required type="password" name="password" id="resetConfrimPass" placeholder="Confrim Password" class="resetInputs bg-[#eee] px-4 py-2  outline-none relative left-5   focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-full rounded-xl transition-all" minlength="6" maxlength="10">
-                <svg id="iconresetconfpass" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 relative right-6 cursor-pointer svgShowPass">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>
-            </div>
-            <div class="w-full">
-                <p id="addSugReset" class="text-xs mt-2 text-red-500 text-start relative left-6 hidden font-bold">Between 6 and 10 and at least one letter</p>
-            </div>
+        <div class="gap-2 w-full flex justify-center items-center">
+          <input
+            required
+            type="password"
+            name="password"
+            id="resetConfrimPass"
+            placeholder="Confrim Password"
+            class="resetInputs bg-[#eee] px-4 py-2 outline-none relative left-5 focus:focus:shadow-2xl focus:shadow-gray-500 focus:scale-105 w-full rounded-xl transition-all"
+            minlength="6"
+            maxlength="10"
+          />
+          <svg
+            id="iconresetconfpass"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6 relative right-6 cursor-pointer svgShowPass"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
         </div>
-        <button id="resetBtn" type="submit" class="btnEmail bg-transparent text-white cursor-pointer rounded-lg hover:bg-[var(--bgmcol)] hover:scale-95  hover:text-black font-bold transition-all duration-500 border-none outline-none  py-2 px-12 flex justify-center gap-2 items-center">
-            Reset Password
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="next size-5 relative hidden transition-all duration-150">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-            </svg>
-                           
-        </button>             
+        <div class="w-full">
+          <p
+            id="addSugReset"
+            class="text-xs mt-2 text-red-500 text-start relative left-6 hidden font-bold"
+          >
+            Between 6 and 10 and at least one letter
+          </p>
+        </div>
+      </div>
+      <button
+        id="resetBtn"
+        type="submit"
+        class="btnEmail bg-transparent text-white cursor-pointer rounded-lg hover:bg-[var(--bgmcol)] hover:scale-95 hover:text-black font-bold transition-all duration-500 border-none outline-none py-2 px-12 flex justify-center gap-2 items-center"
+      >
+        Reset Password
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="next size-5 relative hidden transition-all duration-150"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+          />
+        </svg>
+      </button>
     </form>
-</body>
+  </body>
 </html>

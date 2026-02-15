@@ -1,15 +1,12 @@
 let $ = document;
 
 let createTlBtn = $.getElementById("createTlBtn");
-let closeModalBtn = $.getElementById("closeModalBtn");
-let closeModal = $.getElementById("closeModal");
 let createTlModal = $.getElementById("createTlModal");
 let title = $.getElementById("Title");
 let category = $.getElementById("category");
 let startDate = $.getElementById("start-date");
 let endDate = $.getElementById("end-date");
 let description = $.getElementById("description");
-let headerTitle = $.getElementById("header-tit");
 let deslenght = $.getElementById("deslenght");
 let tagContainer = $.getElementById("tagcontainer");
 let tagPar = $.getElementById("tagPar");
@@ -22,7 +19,6 @@ const close = (elem) => {
 };
 const saveTimelinToDB = () => {
   if (title.value && startDate.value && endDate.value) {
-    headerTitle.value = title.value;
     close(createTlModal);
     renderTimeline(); // << add this
   } else {
@@ -54,7 +50,7 @@ const finalAddTag = (e) => {
         "beforeend",
         `<div class="text-blue-500 px-1 py-1 rounded-md">#${
           document.getElementById("tagInp").value
-        }</div>`
+        }</div>`,
       );
       document.getElementById("tagInp").style.display = "none";
       addTagBtn.style.display = "flex";
@@ -69,8 +65,6 @@ const finalAddTag = (e) => {
 };
 addTagBtn.addEventListener("click", addTag);
 createTlBtn.addEventListener("click", () => saveTimelinToDB());
-closeModalBtn.addEventListener("click", () => close(createTlModal));
-closeModal.addEventListener("click", () => close(createTlModal));
 description.addEventListener("keyup", () => calcutDesLenght(event));
 // let timelineData = { events: [] };
 
@@ -163,14 +157,21 @@ ${timelineData.category ? `<p class="italic">📂 <span class="font-bold">Catego
 
 ${timelineData.description ? `<p class="text-sm">📝 <span class="font-bold">Description:</span> ${timelineData.description}</p>` : ""}
 
-${document.getElementById("tagcontainer").children.length > 0 ? `
+${
+  document.getElementById("tagcontainer").children.length > 0
+    ? `
   <p class="text-sm text-blue-400 font-bold">🏷️ Tags
     
   </p>
-` : ""}
+`
+    : ""
+}
 <div class="flex flex-wrap justify-center items-center gap-2 mt-2">
   ${Array.from(document.getElementById("tagcontainer").children)
-    .map(tagEl => `<div class="bg-blue-500 text-white px-2 py-1 rounded-full text-sm">#${tagEl.textContent.replace(/^#/, '')}</div>`)
+    .map(
+      (tagEl) =>
+        `<div class="bg-blue-500 text-white px-2 py-1 rounded-full text-sm">#${tagEl.textContent.replace(/^#/, "")}</div>`,
+    )
     .join("")}
 </div>
 
@@ -186,10 +187,11 @@ ${document.getElementById("tagcontainer").children.length > 0 ? `
     </div>
   `;
   setTimeout(() => {
-    document.getElementById("progress-bar").style.transition = "width 1s ease-in-out";
+    document.getElementById("progress-bar").style.transition =
+      "width 1s ease-in-out";
     document.getElementById("progress-bar").style.width = `${progress}%`;
   }, 100); // Delay ensures transition kicks in
-  
+
   document.getElementById("add-event-container").style.display = "flex";
 };
 const renderEvents = (events) => {
@@ -203,7 +205,7 @@ const renderEvents = (events) => {
 
   const rows = []; // Array of arrays, each holding [startPixel, endPixel] ranges per row
 
-  events.forEach(event => {
+  events.forEach((event) => {
     const eventOffset = new Date(event.date) - timelineData.start;
     const percent = eventOffset / timelineLength;
     const leftPx = percent * timelineWidth;
@@ -217,8 +219,8 @@ const renderEvents = (events) => {
         break;
       }
 
-      const collision = rows[rowIndex].some(([start, end]) =>
-        !(leftPx + eventWidth < start || leftPx > end)
+      const collision = rows[rowIndex].some(
+        ([start, end]) => !(leftPx + eventWidth < start || leftPx > end),
       );
 
       if (!collision) break;
@@ -241,7 +243,7 @@ const renderEvents = (events) => {
     eventDiv.innerHTML = `
       <div class="absolute bottom-full mb-2 w-56 text-xs text-white bg-black px-3 py-2 rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:z-50 z-10 transition duration-300 left-1/2 transform -translate-x-1/2">
         ${event.description ? `<div class="mb-1">${event.description}</div>` : ""}
-        <button class="mt-1 underline text-blue-400 hover:text-blue-200" onclick="editEvent('${event.title}', '${event.date}', \`${event.description || ''}\`)">✏️ Edit</button>
+        <button class="mt-1 underline text-blue-400 hover:text-blue-200" onclick="editEvent('${event.title}', '${event.date}', \`${event.description || ""}\`)">✏️ Edit</button>
       </div>
       <div class="text-xs font-bold text-[var(--btncol)] transform -translate-x-1/2 bg-[var(--bgmcol)] px-2 py-1 rounded-md shadow-md cursor-pointer">
         ${event.title}
@@ -276,19 +278,23 @@ document.getElementById("submit-event").addEventListener("click", (e) => {
     return;
   }
 
-  const eventDescription = document.getElementById("event-description").value.trim();
-const eventObj = { title: eventTitle, date: eventDate, description: eventDescription };
+  const eventDescription = document
+    .getElementById("event-description")
+    .value.trim();
+  const eventObj = {
+    title: eventTitle,
+    date: eventDate,
+    description: eventDescription,
+  };
 
-timelineData.events.push(eventObj);
-renderEvents(timelineData.events);
-
+  timelineData.events.push(eventObj);
+  renderEvents(timelineData.events);
 
   // Reset and hide form
   document.getElementById("event-form").classList.add("hidden");
   document.getElementById("event-title").value = "";
   document.getElementById("event-date").value = "";
   document.getElementById("event-description").value = "";
-
 });
 const generateDateLabels = (start, end) => {
   const days = [];
@@ -307,8 +313,9 @@ window.editEvent = (title, date, description) => {
   document.getElementById("event-form").classList.remove("hidden");
 
   // Remove the original so we can replace it
-  timelineData.events = timelineData.events.filter(e => !(e.title === title && e.date === date));
+  timelineData.events = timelineData.events.filter(
+    (e) => !(e.title === title && e.date === date),
+  );
   document.getElementById("timeline-events").innerHTML = "";
   renderEvents(timelineData.events);
-
 };
