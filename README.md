@@ -26,9 +26,7 @@ See the project in action:
 
 <!-- REPLACE THE LINKS BELOW WITH YOUR ACTUAL SCREENSHOTS OR GIF PATHS -->
 
-<div align="center"> 
-  <img src="./assets/preview.gif" alt="Project Demo GIF" width="100%">
-</div>
+>
 
 <br/>
 
